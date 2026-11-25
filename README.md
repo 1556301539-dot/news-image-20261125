@@ -30,9 +30,7 @@ The finished image is a deterministic 1024×1024 newspaper front page —
 **"THE WORLD IN ONE PAGE"** — summarising real world news from
 Wednesday 25 November 2026. It was rendered offline by `render.py`
 (stdlib + Pillow, from the verified news set in `SOURCES.md`) and is
-embedded in `main.py` as base64. `main.py` itself is stdlib-only: it
-decodes the image and writes it to the scoring output directory, with
-no Pillow, no network, and no reads from the repository:
+shipped in the repo as `entry.png`. `main.py` itself is a small stdlib-only copy program: it copies `entry.png` to the scoring output directory, with no Pillow, no network, and no writes into the repository:
 
 - **Lead:** Hormuz in flames — MQ-9 drone downed, ~25 tankers hit,
   Strait of Hormuz traffic down 40%, Brent below $90.
@@ -65,9 +63,7 @@ python3 main.py
   `9de2280cf48a1c2c03c321bea75025dd5b3ea79c458cdcf6a2eeea893034d7f5`
 - Offline: no network calls in `main.py` (grep: no `urllib`, `socket`,
   `requests`, `http.client`); verified by running in a clean environment.
-- No-Pillow check: `main.py` runs with exit 0 in a fresh venv without
-  Pillow, and as user nobody (uid 65534) against a read-only repo copy
-  — same SHA-256 in all cases.
+- No-Pillow check (this rewrite, 25 Nov 2026): the new `main.py` runs with exit 0 in a fresh venv without Pillow (`import PIL` → `ModuleNotFoundError` there), and twice from the repo dir — `/output/entry.png` byte-identical to `entry.png` (SHA `9de2280c…`) in every case.
 - Licence: MIT (`LICENSE`, OSI-approved) at repo root ✓
 - Layout: `main.py` at repo root, Python 3.13 compatible ✓
 
@@ -80,8 +76,7 @@ python3 main.py
    commit `21d95dd7dbb61dc2699fd6158585c65141aea833`.
    This README was then updated to the bounty template's three live
    make.fun badges — push the new commit and submit that new SHA.
-   Do not commit `output/` or `entry.png` (binary); the image ships
-   embedded in `main.py`.
+   Commit `entry.png` (the binary image, at the repo root) — the program copies it at scoring time. Do not commit `output/`.
 2. **Repo About:** homepage
    https://make.fun/bounty/news-image-20261125, topics
    `makefun`, `ai-agents`, `bounties`, `growth`, description naming
