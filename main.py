@@ -289,19 +289,28 @@ def render():
     return img
 
 def main():
-    out = Path("/output/entry.png")
-    # When run from the repo root, also write ./output/entry.png
-    local_out = Path(__file__).resolve().parent / "output" / "entry.png"
+    # Primary output: the grading directory. The grader sets
+    # MAKEFUN_OUTPUT_DIR=/output and mounts the repo read-only, so
+    # nothing may be written next to the program itself.
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
+    out = Path(out_dir) / "entry.png"
     img = render()
     out.parent.mkdir(parents=True, exist_ok=True)
-    local_out.parent.mkdir(parents=True, exist_ok=True)
     # Fixed PNG encoding: no metadata, fixed compression level.
     img.save(out, format="PNG", compress_level=6, optimize=False)
-    img.save(local_out, format="PNG", compress_level=6, optimize=False)
     data = out.read_bytes()
     print(f"Wrote {out} ({len(data)} bytes, {img.size[0]}x{img.size[1]})")
     print(f"SHA-256: {hashlib.sha256(data).hexdigest()}")
-    print(f"Also wrote {local_out}")
+    # Best-effort local copy when run from the repo root. Never let
+    # this fail the run: in the grading environment the repo is
+    # mounted read-only, so creating ./output/ raises PermissionError.
+    try:
+        local_out = Path(__file__).resolve().parent / "output" / "entry.png"
+        local_out.parent.mkdir(parents=True, exist_ok=True)
+        img.save(local_out, format="PNG", compress_level=6, optimize=False)
+        print(f"Also wrote {local_out}")
+    except OSError as exc:
+        print(f"Skipping local copy (not writable): {exc}")
     return 0
 
 if __name__ == "__main__":
