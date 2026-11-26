@@ -37,14 +37,15 @@ shipped in the repo as `entry.png`. `main.py` itself is a small stdlib-only copy
 - **Space:** Shenzhou-24 launches from Jiuquan with the first Pakistani
   astronaut, Muhammad Zeeshan Ali, aboard Tiangong.
 - **Courts:** Huawei convicted in Brooklyn on 10 of 12 counts.
+- **Health:** WHO pulls staff from a hospital in Ituri, DR Congo, as
+  Ebola's toll reaches 5,775 dead of 11,762 cases.
 - **The day in numbers:** 25 tankers hit, 40% traffic down, 209 threats
   intercepted, 08:18 liftoff, 10/12 counts, ≈500,000 leaked losses.
-- **Map:** a simplified world map with numbered pins marking where the
-  day's stories happened.
-- **Around the world:** 26 one-line briefs across six regions
-  (Middle East, Asia-Pacific, Europe, Americas, Africa, Oceania).
+- **Around the world:** 8 one-line briefs at 16pt across six regions
+  (Middle East, Asia-Pacific, Europe, Americas, Africa, Oceania) —
+  big enough to read at ~300 px.
 - All headlines were researched from real reporting on 25 Nov 2026 —
-  see [SOURCES.md](SOURCES.md). No story was fabricated. 29 stories
+  see [SOURCES.md](SOURCES.md). No story was fabricated. 13 stories
   in total, every one dated 25 Nov 2026 (the Huawei verdict, reported
   24 Nov, is flagged in the image's date check).
 
@@ -63,12 +64,13 @@ python3 main.py
 
 ## Test results (25 Nov 2026, this workspace)
 
-- Size: **1024 × 1024 px**, PNG, **168,046 bytes** (limit: 1 MiB, 1024×1024) ✓
+- Size: **1024 × 1024 px**, PNG, **146,886 bytes** (limit: 1 MiB, 1024×1024) ✓
 - Determinism: run twice → identical SHA-256
-  `1a2d7e190e665257e82421c6206c87abfcfe67b4a9f48f026629fa928a369f2f`
+  `9f703c2ce6aefc9c76fd2b0c9d83e2ebd4a75535cdb54410afb8f82d2fdc107e`
+  (Round-6 SHA was `1a2d7e19…`; the image changed, the facts did not.)
 - Offline: no network calls in `main.py` (grep: no `urllib`, `socket`,
   `requests`, `http.client`); verified by running in a clean environment.
-- No-Pillow check (this rewrite, 25 Nov 2026): the new `main.py` runs with exit 0 in a fresh venv without Pillow (`import PIL` → `ModuleNotFoundError` there), and twice from the repo dir — `/output/entry.png` byte-identical to `entry.png` (SHA `1a2d7e19…`) in every case.
+- No-Pillow check (round 7, 26 Nov 2026): `main.py` runs with exit 0 in a fresh venv without Pillow (`import PIL` → `ModuleNotFoundError` there), and twice from the repo dir — `/output/entry.png` byte-identical to `entry.png` (SHA `9f703c2c…`) in every case.
 - Licence: MIT (`LICENSE`, OSI-approved) at repo root ✓
 - Layout: `main.py` at repo root, Python 3.13 compatible ✓
 

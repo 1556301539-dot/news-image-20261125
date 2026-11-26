@@ -5,9 +5,11 @@
 - Prize: $100 USDC, 50 winners (1st $20, 2nd $12, 3rd $6, 4–10th $2 each,
   11–50th $1.20 each). Deadline: Fri 27 Nov 2026, 8:00 AM Beijing.
 - Built: 26 Nov 2026, in `~/workspace/make-fun/news-image/`
-- **Status: round-6 redesign built and tested locally. Not yet pushed
+- **Status: round-7 redesign built and tested locally. Not yet pushed
   or submitted — entry.png still needs a browser upload (binary),
-  then transcripts + kit submission.**
+  then transcripts + kit submission. Round 6 ("Luminous Locus",
+  commit 66082762) scored dev 0.978389, rank 2154 of 12,671 — the
+  insurance if round 7 scores worse.**
 
 ## Why round 6 exists
 
@@ -76,15 +78,56 @@
   are removed in round 6. Every fact now drawn is in SOURCES.md;
   nothing new was invented. SOURCES.md itself is unchanged.
 
+## Round 7 redesign — "four pictures from one day, legible at 300 px"
+
+- **Why round 7 exists:** round 6 scored dev 0.978389 (12 won / 0 lost
+  of 12 games) and ranked 2154 of 12,671 (prize rank 2153) — better
+  than round 5's 0.975354 / 2242, but the user said 2154 is still far
+  too low and asked for the page to be made better, properly, like a
+  top designer would.
+- **The brief was corrected against the judge's criteria, read
+  verbatim from competition.yaml:** five criteria in order (one day's
+  news + names the day; selection and breadth; reads clearly from the
+  image alone; faithful; craft — one clear composition, legible at
+  about 300 px, no smears/artefacts/garbled text), "Detail for its
+  own sake does not count", first differing criterion decides, margin
+  1–5 with decisive wins worth more. The earlier idea of pushing the
+  story count toward 35 was dropped on that basis.
+- **Every picture now tells its own story (criterion 3):** the hero
+  tanker has real flames, a thick smoke column, a second ship
+  burning, a drone overhead and mines in the water; the launch shows
+  a big rocket with a long flame plume over the Earth's curve and
+  Tiangong; the courthouse carries a red GUILTY stamp (10 / 12) so
+  the verdict reads even at thumbnail size; a fourth picture joins
+  the page — a clinic in Ituri with a red cross, an ambulance and a
+  stretcher team (health, Africa).
+- **One clear composition, legible at 300 px (criterion 5):** the page
+  was shrunk to 300 px wide and checked by eye — the date, the lead
+  headline, all six numbers, the three scene headlines and the bold
+  brief place-names still read. The brief list is cut from 26 tiny
+  lines to 8 lines at 16pt; the world map is gone (its pins were
+  unreadable at 300 px). Restraint, whitespace, one region = one
+  story.
+- **13 stories, 6 regions, 9 fields** (4 pictures + 8 briefs + the
+  Russian-losses figure): Middle East, Asia-Pacific, Europe,
+  Americas, Africa, Oceania; conflict, space, courts, health, trade,
+  diplomacy, security, cyber, disaster. The count fell from 29 on
+  purpose — detail for its own sake does not count.
+- **Theme unchanged, deepened:** "Broadsheet Dusk" (warm paper,
+  ink, signal red, navy dusk, amber light). The clinic is the one
+  day scene, in the same warm sand/amber/red language.
+- **Facts unchanged:** every fact is in SOURCES.md; nothing new was
+  invented; SOURCES.md itself is unchanged.
+
 ## Files (repo root)
 
 | File | Purpose |
 |---|---|
-| `main.py` | Python 3.13 program, **stdlib only**, copies `entry.png` to the scoring output dir — UNCHANGED in round 6 |
-| `render.py` | The drawing program (stdlib + Pillow, local use), rewritten from scratch for round 6 |
+| `main.py` | Python 3.13 program, **stdlib only**, copies `entry.png` to the scoring output dir — UNCHANGED in rounds 6 and 7 |
+| `render.py` | The drawing program (stdlib + Pillow, local use), rewritten from scratch for round 7 |
 | `entry.png` | The finished 1024×1024 front page, shipped in the repo (scoring artifact) |
 | `LICENSE` | MIT (OSI-approved) |
-| `README.md` | How to run, what the image shows (updated for round 6; the three make.fun badges unchanged) |
+| `README.md` | How to run, what the image shows (updated for round 7; the three make.fun badges unchanged) |
 | `SOURCES.md` | Full source list for every story (unchanged) |
 | `BUILD_REPORT.md` | This file |
 | `output/entry.png` | Old generated preview (superseded, do not push) |
@@ -126,6 +169,27 @@
 - **Python version:** tested locally on Python 3.12.3 / Pillow 10.2.0
   for rendering. `main.py` uses only stdlib and no 3.13-only syntax.
 
+## Test results (round 7, this workspace, 26 Nov 2026)
+
+- **Dimensions:** 1024 × 1024 px, PNG, RGB ✓ (limit 1024×1024)
+- **File size:** 146,886 bytes = 0.14 MiB ✓ (limit 1 MiB)
+- **Determinism:** ran `python3 render.py` twice — identical output.
+  SHA-256: `9f703c2ce6aefc9c76fd2b0c9d83e2ebd4a75535cdb54410afb8f82d2fdc107e`
+  (Round-6 SHA was `1a2d7e19…`; the image changed, the facts did not.)
+- **No overflow:** render.py measures every string against its box
+  and warns on stderr; the two runs printed no overflow warnings,
+  and the layout ended inside the page (no y > 1010 warning).
+- **Visual check:** the rendered page was viewed at full size and
+  shrunk to 300 px wide. At 300 px the date, lead headline, all six
+  numbers, the three scene headlines and the bold brief place-names
+  still read; the hero reads as a burning tanker, the court scene as
+  a verdict (red GUILTY stamp), the clinic as a medical scene.
+- **main.py grading simulations:** `python3 main.py` twice with
+  `MAKEFUN_OUTPUT_DIR` set: exit 0 both times, output byte-identical
+  to the repo `entry.png` (SHA `9f703c2c…`). In a fresh venv **without
+  Pillow** (`import PIL` → `ModuleNotFoundError`), `main.py` runs with
+  exit 0, same SHA `9f703c2c…`. `main.py` unchanged since round 5.
+
 ## What remains (in order)
 
 1. **Upload `entry.png` to GitHub** (binary — the connector cannot
@@ -139,24 +203,25 @@
    `get_file_contents`). Record the full commit SHA.
 3. **Bundle transcripts** with the kit (`node cli/makefun.mjs
    bundle`, `--no-discover --no-family`): this round's session
-   plus the round-5 rewrite session 02496520 (authored `main.py`)
-   and build session 933a91b5 (authored `SOURCES.md`), recorded
-   sessions only, real usage from muse.db. Never rebuild or
-   fabricate session records.
-4. **Submit round 6 via the kit API** with the agent keypair
+   plus the round-6 redesign session f85e79fc, the round-5 rewrite
+   session 02496520 (authored `main.py`) and build session 933a91b5
+   (authored `SOURCES.md`), recorded sessions only, real usage from
+   muse.db. Never rebuild or fabricate session records.
+4. **Submit round 7 via the kit API** with the agent keypair
    (agent wallet 24gzFszy…), before Fri 27 Nov 2026 08:00 Beijing.
    Check `makefun status`: all checks must pass, then note the
    submission ID, name, claim code and dev provisional rate.
-5. **Compare with round 5** (dev 0.975354, rank 2242). If round 6's
-   dev rate is clearly higher, keep round 6 as final. If it is
-   lower or about the same, restore round 5 as final before the
+5. **Compare with round 6** (dev 0.978389, rank 2154). If round 7's
+   dev rate is clearly higher, keep round 7 as final. If it is
+   lower or about the same, restore round 6 as final before the
    deadline — either by selecting the earlier finished submission
-   or by resubmitting commit 7668924b with transcripts-v5
-   (SHA-256 `7e474382433512ec09cdb5ceeb25b973de1984a86d734b2bc48eb347ba4ea800`).
-   Transcripts-v5 and commit 7668924b are the insurance; do not
-   overwrite or delete them.
-6. Quota: 5 entries used (all 25 Nov), 10 available today
-   (26 Nov), 15 total left. Deadline Fri 27 Nov 08:00 Beijing.
+   or by resubmitting commit 66082762 with transcripts-v6
+   (SHA-256 `53020f058bee466881560223771657f20e6e37cd2b146cc9954031f3700e0c3b`).
+   Transcripts-v6 and commit 66082762 are the insurance; do not
+   overwrite or delete them. Round 5 (commit 7668924b +
+   transcripts-v5) remains a second fallback.
+6. Quota: 6 entries used (5 on 25 Nov, round 6 on 26 Nov), 9 left
+   today (26 Nov), 14 total left. Deadline Fri 27 Nov 08:00 Beijing.
    Final result due 11 Dec 2026.
 
 ## Honest caveats
@@ -165,8 +230,8 @@
   ranking is due 11 Dec 2026. A better-looking page does not
   guarantee a better pairwise rate — the comparison in step 5 is
   the only evidence that counts.
-- Competition is very strong: 14,042 submissions, leaders at
-  ~98.5% win rate. Round 6 needs a large jump from 0.975354 to
+- Competition is very strong: 12,671 ranked entries, leaders at
+  ~98.5% win rate. Round 7 needs a large jump from 0.978389 to
   reach the top 50.
 - The scoring environment's fonts may differ slightly from this
   workspace; the program falls back to Pillow's default font, so
