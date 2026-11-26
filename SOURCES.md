@@ -124,3 +124,44 @@ Yoon's life sentence was 19 Feb 2026.
 - Prosecutors seek the death penalty for ex-president Yoon —
   Hankook Ilbo (via Threads summary) and today.refreshing.cc,
   25 Nov 2026.
+
+## Round 9 — new items verified 26 Nov 2026 (all dated 25 Nov 2026)
+
+- **Huawei's reaction is 25 Nov news; the verdict is not.** Huawei
+  rejected the US conviction on Wednesday 25 Nov, calling it
+  "without legal or factual merit" — CNA, Inquirer, Roya News,
+  The Citizen, Free Malaysia Today, 25 Nov 2026. Beijing also
+  lashed out on Wednesday. The verdict itself was reported
+  Tue 24 Nov (Reuters, CNN, DOJ — see above) and is used only as
+  the subject of the 25 Nov reaction, in brief 14.
+- **"Two tankers hit mines" (the IRGC claim).** IRNA, published
+  2026-11-25T06:05:46Z: two oil tankers hit naval mines early
+  Wednesday off the southern/eastern coasts of the Strait of
+  Hormuz, fires in their engine rooms. Corroborated by Arab News,
+  Straits Times, Jerusalem Post, Mehr, AnewZ, 25 Nov 2026.
+  Earlier in the week (Monday) three other tankers caught fire —
+  that is a Mon 23 Nov event and belongs in the date check, not
+  on the page. The "25 tankers hit" figure (News18, 25 Nov) is
+  not used as a headline fact in round 9.
+- **Riyadh tower attack — Tue 24 Nov, not 25 Nov.** Arab News
+  24 Nov 16:08, Al Jazeera published 2026-11-24T14:27:38Z,
+  Haaretz: struck Tuesday, 11 injured, PIF Tower, second strike
+  in a week after Nov 19. Date-check material only.
+- **Nvidia — Mon 23 Nov.** Huang reinstated as CEO Mon 23 Nov
+  (MoneyControl / Threads recap, 23 Nov). Date-check material
+  only.
+- **COP31 — Sun 22 Nov.** Talks collapsed / ended without a deal
+  on Sunday (Banana Daily; thebilig daily brief, 23 Nov).
+  Date-check material only.
+- **Cairo tanker crash: evening of 25 Nov** (AP via TBS:
+  "occurred yesterday evening (25 November)"). No precise clock
+  time is published, so it is NOT used in the timeline.
+- **USTR tariff proposal: announced Wed 25 Nov** (Reuters,
+  Lexology, Thompson Coburn). No precise clock time is published,
+  so it is NOT used in the timeline.
+- **Timeline clock times (all real, all UTC):** 00:18 Shenzhou-24
+  liftoff (08:18 Beijing); 03:56 docking (11:56 Beijing, i.e.
+  08:18 + 3h 38m, per Dawn); 06:05 IRGC statement (IRNA
+  publication time 06:05:46Z); 06:30 Kospi close (15:30 KST,
+  -6.2%). Nothing else on the page is a verifiable clock time,
+  so the timeline has four nodes, not six.

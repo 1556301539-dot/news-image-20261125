@@ -32,32 +32,47 @@ Wednesday 25 November 2026. It was rendered offline by `render.py`
 (stdlib + Pillow, from the verified news set in `SOURCES.md`) and is
 shipped in the repo as `entry.png`. `main.py` itself is a small stdlib-only copy program: it copies `entry.png` to the scoring output directory, with no Pillow, no network, and no writes into the repository:
 
-- **Lead:** Hormuz in flames — MQ-9 drone downed, ~25 tankers hit,
-  Strait of Hormuz traffic down 40%.
-- **Space:** Shenzhou-24 launches from Jiuquan with the first Pakistani
-  astronaut, Muhammad Zeeshan Ali, aboard Tiangong.
-- **Courts:** Huawei convicted in Brooklyn on 10 of 12 counts.
-- **Health:** WHO pulls staff from a hospital in Ituri, DR Congo, as
-  Ebola's toll reaches 5,775 dead of 11,762 cases.
-- **Markets:** Kospi plunges 6.2% as an AI-doubt chip rout sweeps
-  Asia — Samsung -9.9%, SK Hynix -11%.
-- **Disaster:** a fuel tanker crash on Cairo's Ring Road kills 31.
-- **Trade:** the US proposes tariffs on 14 economies — Vietnam up to
-  35%, India up to 25%, China up to 20%.
-- **Crime:** all hostages freed as the Cartagena supermarket siege ends.
-- **Conflict:** Israeli strikes in Gaza kill seven despite the ceasefire.
-- **The day in numbers:** 25 tankers hit, -6.2% Kospi, 31 killed in
-  Cairo, 35% top tariff, 10/12 Huawei counts, 5,775 Ebola dead.
-- **The day in order:** a UTC timeline from 00:18 (Shenzhou liftoff)
-  to the Gaza strikes.
-- **Around the world:** 30 one-line briefs at 13pt across nine regions
-  (Middle East, Asia-Pacific, Europe, Americas, Africa, Oceania) —
-  big enough to read at full size.
+- **Lead:** the Strait of Hormuz — the IRGC says two tankers
+  "hit by mines" and an MQ-9 was downed. The story is labelled
+  CLAIM, because it is one side's say, not a verified fact.
+- **Space:** Shenzhou-24 launches from Jiuquan with the first
+  Pakistani astronaut, Muhammad Zeeshan Ali, aboard Tiangong —
+  docks 3h 38m after the 08:18 liftoff.
+- **Trade:** the US proposes tariffs on 14 economies — Vietnam up
+  to 35%, India up to 25%, China up to 20%.
+- **Ten small scenes, all in daylight,** each with a coloured
+  keyword band on the picture (KOSPI -6.2%, 31 DEAD, EBOLA 5,775,
+  HOSTAGES FREED, 7 KILLED, 10% DUTY, $227M SEIZED, POSTPONED,
+  14,000 MARCH, 16 DEAD) — Kospi chart, Cairo tanker fire, Ituri
+  clinic, Cartagena supermarket, Gaza at dawn, Embraer jet,
+  Nigeria port, Macy's parade, Athens march, Pakistan collapse.
+- **Every story carries a credibility label** — OFFICIAL (the
+  source's own words), REPORTED (covered by the press), CLAIM
+  (one side's say, not verified) — with a legend under the
+  masthead. The Huawei verdict (reported 24 Nov) is not a story
+  on this page: only Huawei's 25 Nov reaction to it is, in
+  brief 14.
+- **The map is back:** WHERE IT HAPPENED, with red numbered dots
+  for the 13 pictured stories, and the briefs numbered 14–34 in
+  the same sequence.
+- **The day in numbers:** -6.2% Kospi, 35% top tariff, 31 killed
+  in Cairo, 5,775 Ebola dead, 209 threats intercepted, $227m meth
+  seized.
+- **The day in order:** a UTC timeline with four real clock times
+  only (00:18 liftoff, 03:56 docking, 06:05 IRGC statement,
+  06:30 Kospi close) — nothing faked to fill it out.
+- **DATE CHECK, boxed:** every story on the page was first
+  reported on Wed 25 Nov 2026; the box lists what was left out
+  (Huawei verdict Tue 24, Riyadh tower Tue 24, three tankers hit
+  mines Mon 23, Nvidia chief returns Mon 23, COP31 ends Sun 22)
+  and what has not happened yet (Thanksgiving Day Thu 26).
+- **The rest of the world:** 21 one-line briefs in three columns
+  (stories 14–34), each with a coloured credibility square.
 - All headlines were researched from real reporting on 25 Nov 2026 —
-  see [SOURCES.md](SOURCES.md). No story was fabricated. **39 stories
-  in total** (1 lead + 8 scenes + 30 briefs), every one dated
-  25 Nov 2026 (the Huawei verdict, reported 24 Nov, is flagged in
-  the image's date check).
+  see [SOURCES.md](SOURCES.md). No story was fabricated. **34 stories
+  in total** (3 big + 10 small + 21 briefs), six regions
+  (Middle East 6, Asia-Pacific 9, Europe 6, Americas 10, Africa 2,
+  Oceania 1), every one dated 25 Nov 2026.
 
 ## How to run
 
@@ -72,17 +87,22 @@ python3 main.py
 - No Pillow needed to run `main.py` (stdlib only). Pillow is only
   needed by `render.py` to re-render the image locally.
 
-## Test results (25 Nov 2026, this workspace)
+## Test results (26 Nov 2026, this workspace)
 
-- Size: **1024 × 1024 px**, PNG, **239,483 bytes** (limit: 1 MiB, 1024×1024) ✓
+- Size: **1024 × 1024 px**, PNG, **264,426 bytes** (limit: 1 MiB, 1024×1024) ✓
 - Determinism: run twice → identical SHA-256
-  `b92ad3cc909a5670ddddfa9405d0e40904d96c166d08fe5b7d3945ad60b1aa47`
-  (Round-7 SHA was `9f703c2c…`; the image changed, the facts did not.)
+  `bf2cbf820d755f3db6a15abc92793c993f0304ab70d9fb0c03429b5c3dd946ab`
+  (Round-8 SHA was `b92ad3cc…`; the image changed, the facts did not.)
 - Offline: no network calls in `main.py` (grep: no `urllib`, `socket`,
   `requests`, `http.client`); verified by running in a clean environment.
-- No-Pillow check (round 7, 26 Nov 2026): `main.py` runs with exit 0 in a fresh venv without Pillow (`import PIL` → `ModuleNotFoundError` there), and twice from the repo dir — `/output/entry.png` byte-identical to `entry.png` (SHA `9f703c2c…`) in every case.
+- No-Pillow check (round 7, 26 Nov 2026): `main.py` runs with exit 0 in a fresh venv without Pillow (`import PIL` → `ModuleNotFoundError` there), and twice from the repo dir — `/output/entry.png` byte-identical to `entry.png` (SHA `9f703c2c…`) in every case. `main.py` is unchanged since round 5.
 - Licence: MIT (`LICENSE`, OSI-approved) at repo root ✓
 - Layout: `main.py` at repo root, Python 3.13 compatible ✓
+- Visual check: viewed at full size and at 300 px — the date, lead
+  headline, six numbers, keyword bands, map and date-check box all
+  read at 300 px; all ten small-scene credibility chips are present
+  with the right label (verified by pixel scan), the DATE CHECK
+  × marks render, and no dark scene blurs into a block.
 
 ## How to submit (for the user — NOT submitted yet)
 
@@ -111,8 +131,11 @@ python3 main.py
    1 day after the deadline; prizes are paid in USDC on Solana and
    must be claimed by winners.
 
-**Status: program built and tested, first commit pushed to GitHub.
-NOT submitted, NOT signed, no payment made. The earlier signing
-attempt (25 Nov, 15:12–15:15 Beijing) failed — "No Solana wallet
-found in this browser" — and the form was cleared, so 10 of 10
-daily submissions are still unused.**
+**Status: round 9 built and tested locally (26 Nov 2026). Not yet
+pushed or submitted — entry.png still needs a browser upload
+(binary), then transcripts + kit submission. Round 6 ("Luminous
+Locus", commit 66082762, dev 0.978389) is the current final entry
+and the insurance if round 9 scores worse. Rounds 1–8 are already
+submitted via the kit API; the agent submits, no user signing is
+needed. Quota used: 8 entries (5 on 25 Nov, 3 on 26 Nov); round 9
+would be the 9th. Deadline Fri 27 Nov 08:00 Beijing.**

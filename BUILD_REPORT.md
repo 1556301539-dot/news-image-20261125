@@ -5,13 +5,95 @@
 - Prize: $100 USDC, 50 winners (1st $20, 2nd $12, 3rd $6, 4–10th $2 each,
   11–50th $1.20 each). Deadline: Fri 27 Nov 2026, 8:00 AM Beijing.
 - Built: 26 Nov 2026, in `~/workspace/make-fun/news-image/`
-- **Status: round-8 redesign built and tested locally. Not yet pushed
+- **Status: round-9 redesign built and tested locally. Not yet pushed
   or submitted — entry.png still needs a browser upload (binary),
   then transcripts + kit submission. Round 6 ("Luminous Locus",
-  commit 66082762) scored dev 0.978389, rank 2154 of 12,671 — the
-  insurance if round 8 scores worse. Round 7 ("Hopeful Vector",
-  commit 4f2e20ab) scored dev 0.972121 and was restored away from;
-  round 6 is the current final entry.**
+  commit 66082762) scored dev 0.978389 — the insurance if round 9
+  scores worse, and the current final entry. Round 7 ("Hopeful
+  Vector", commit 4f2e20ab) scored dev 0.972121; round 8 ("Austere
+  Echo", commit 0a534738) scored dev 0.968674 (11W/0D/1L) — both
+  record only.**
+
+## Round 9 — "labels, map, light" (26 Nov 2026, this round)
+
+- **Why:** round 8 (39 stories, dev 0.968674) scored below round 6
+  (29 stories, dev 0.978389) and below round 7 (13 stories,
+  0.972121). Breadth did not pay; density likely hurt readability
+  (criterion 5) or diluted the composition. A top-10 analysis
+  (~/workspace/make-fun/top10-analysis/REPORT.md, all 10 leaders
+  viewed full-size and at 300 px) showed what the leaders share:
+  credibility labels on every story, a boxed DATE CHECK, a map with
+  numbered dots, a real-times UTC timeline, 31–55 stories with
+  light small scenes and keyword bands. Round 9 takes those five
+  systems — structure is the judge's criteria mapped, not a copy
+  of any leader's layout — and keeps our own "Broadsheet Dusk"
+  visual language.
+- **The five points, all done:**
+  1. **Date discipline + credibility system.** Huawei verdict out
+     of the headlines and out of the numbers strip; only Huawei's
+     25 Nov reaction ("Huawei rejects US verdict", OFFICIAL, brief
+     14) is used, verified 26 Nov (CNA, Inquirer, Roya News, The
+     Citizen, Free Malaysia Today). "25 tankers hit" is gone as a
+     headline fact; the lead is the conservative IRGC claim "Two
+     tankers 'hit by mines'", labelled CLAIM (IRNA published
+     06:05:46Z, corroborated by Arab News, Straits Times,
+     Jerusalem Post, Mehr, AnewZ). Every story carries an
+     OFFICIAL / REPORTED / CLAIM tag, with a legend under the
+     masthead and coloured squares in the briefs. DATE CHECK is a
+     boxed column next to the map: Huawei verdict Tue 24, Riyadh
+     tower Tue 24, three tankers hit mines Mon 23, Nvidia chief
+     returns Mon 23, COP31 ends Sun 22 — plus "Thanksgiving Day
+     Thu 26 (not yet happened)".
+  2. **Map back.** WHERE IT HAPPENED, red numbered dots 1–13 for
+     the pictured stories; briefs numbered 14–34 in the same
+     sequence. One numbering system across the whole page.
+  3. **3 big + 10 small scenes.** All ten small scenes are daylight
+     (pale skies), each with a coloured keyword band across the top
+     of the picture (KOSPI -6.2%, 31 DEAD, EBOLA 5,775, HOSTAGES
+     FREED, 7 KILLED, 10% DUTY, $227M SEIZED, POSTPONED, 14,000
+     MARCH, 16 DEAD). The only dusk pictures are the three big
+     ones, restored to round 6's size (309 px wide, not round 8's
+     thin full-width strip). Gaza is a pale dawn scene, not a night
+     scene — zero dark small scenes.
+  4. **Region bar + real UTC timeline.** Six equal coloured blocks
+     under the masthead (MIDDLE EAST · 6, ASIA-PACIFIC · 9,
+     EUROPE · 6, AMERICAS · 10, AFRICA · 2, OCEANIA · 1). The
+     timeline has four nodes, all real clock times (00:18 liftoff,
+     03:56 docking, 06:05 IRGC statement, 06:30 Kospi close) —
+     nothing faked to fill it out. Cairo's fire (evening of 25 Nov)
+     and the USTR announcement (Wed 25 Nov) have no published
+     clock time and are not in the timeline.
+  5. **34 stories** (3 big + 10 small + 21 briefs) — the 33–41
+     band, not 50+. The freed space went to the labels, the map,
+     the timeline and the keyword bands.
+- **New facts, all verified online and dated 25 Nov 2026** (see the
+  round-9 section of SOURCES.md): Huawei's 25 Nov reaction; the
+  IRGC "two tankers" claim and its 06:05:46Z publication time;
+  Riyadh tower Tue 24, Nvidia Mon 23, COP31 Sun 22 (all
+  date-check material). Rejected again: Jesse Jackson died
+  17 Feb 2026, Prince Andrew arrested 19 Feb 2026, "El Mencho"
+  killed 22 Feb 2026, Yoon's life sentence was 19 Feb 2026.
+- **Two real bugs found in review and fixed:**
+  - `draw_spaced` returned the absolute end-x, but the big- and
+    small-scene sections treated it as a width — so every
+    credibility chip after the first column was drawn one column
+    too far right (Gaza's chip landed off the page; the clinic's
+    OFFICIAL chip appeared next to Gaza; Cairo's and Colombia's
+    chips were missing entirely). It now returns the width drawn.
+    All 15 chips were re-verified by pixel scan: present, correct
+    label, inside their own column.
+  - `flame` drew stacked triangles that read as a yellow pyramid;
+    it now draws stacked ellipses — a flame blob. The DATE CHECK
+    "✕" (U+2715) rendered as an empty box in DejaVu Sans and is
+    now "×" (U+00D7); the PACIFIC ocean label was clipped at the
+    map edge and moved left.
+- **Verification:** `render.py` run twice → identical SHA-256
+  `bf2cbf820d755f3db6a15abc92793c993f0304ab70d9fb0c03429b5c3dd946ab`;
+  264,426 bytes (limit 1 MiB); 1024×1024; no layout warnings
+  (ends inside 1010); viewed at full size and at 300 px — the
+  date, lead headline, six numbers, keyword bands, map and
+  date-check box all read at 300 px; no dark scene blurs into a
+  block. `main.py` unchanged since round 5.
 
 ## Round 8 — "breadth plus pictures" (26 Nov 2026, this round)
 
@@ -177,11 +259,11 @@
 | File | Purpose |
 |---|---|
 | `main.py` | Python 3.13 program, **stdlib only**, copies `entry.png` to the scoring output dir — UNCHANGED in rounds 6 and 7 |
-| `render.py` | The drawing program (stdlib + Pillow, local use), rewritten from scratch for round 7 |
+| `render.py` | The drawing program (stdlib + Pillow, local use), rewritten from scratch for round 9 |
 | `entry.png` | The finished 1024×1024 front page, shipped in the repo (scoring artifact) |
 | `LICENSE` | MIT (OSI-approved) |
-| `README.md` | How to run, what the image shows (updated for round 7; the three make.fun badges unchanged) |
-| `SOURCES.md` | Full source list for every story (unchanged) |
+| `README.md` | How to run, what the image shows (updated for round 9; the three make.fun badges unchanged) |
+| `SOURCES.md` | Full source list for every story (round-9 section added) |
 | `BUILD_REPORT.md` | This file |
 | `output/entry.png` | Old generated preview (superseded, do not push) |
 | `preview-entry.png` | Copy of the old preview (do not push) |
@@ -251,30 +333,30 @@
    repo-root `entry.png` at
    https://github.com/1556301539-dot/news-image-20261125.
 2. **Push the text files** (`render.py`, `README.md`,
-   `BUILD_REPORT.md`) via the GitHub connector snapshot, then
-   verify the new head commit live (`list_commits` +
+   `BUILD_REPORT.md`, `SOURCES.md`) via the GitHub connector
+   snapshot, then verify the new head commit live (`list_commits` +
    `get_file_contents`). Record the full commit SHA.
 3. **Bundle transcripts** with the kit (`node cli/makefun.mjs
    bundle`, `--no-discover --no-family`): this round's session
-   plus the round-6 redesign session f85e79fc, the round-5 rewrite
-   session 02496520 (authored `main.py`) and build session 933a91b5
-   (authored `SOURCES.md`), recorded sessions only, real usage from
-   muse.db. Never rebuild or fabricate session records.
-4. **Submit round 7 via the kit API** with the agent keypair
+   c339218c plus the round-6 redesign session f85e79fc, the
+   round-5 rewrite session 02496520 (authored `main.py`) and
+   build session 933a91b5 (authored `SOURCES.md`), recorded
+   sessions only, real usage from muse.db. Never rebuild or
+   fabricate session records.
+4. **Submit round 9 via the kit API** with the agent keypair
    (agent wallet 24gzFszy…), before Fri 27 Nov 2026 08:00 Beijing.
    Check `makefun status`: all checks must pass, then note the
    submission ID, name, claim code and dev provisional rate.
-5. **Compare with round 6** (dev 0.978389, rank 2154). If round 7's
-   dev rate is clearly higher, keep round 7 as final. If it is
-   lower or about the same, restore round 6 as final before the
-   deadline — either by selecting the earlier finished submission
-   or by resubmitting commit 66082762 with transcripts-v6
-   (SHA-256 `53020f058bee466881560223771657f20e6e37cd2b146cc9954031f3700e0c3b`).
-   Transcripts-v6 and commit 66082762 are the insurance; do not
-   overwrite or delete them. Round 5 (commit 7668924b +
-   transcripts-v5) remains a second fallback.
-6. Quota: 6 entries used (5 on 25 Nov, round 6 on 26 Nov), 9 left
-   today (26 Nov), 14 total left. Deadline Fri 27 Nov 08:00 Beijing.
+5. **Compare with round 6** (dev 0.978389). If round 9's dev rate is
+   clearly higher, it becomes final automatically (last submission
+   before the deadline). If it is lower or about the same, restore
+   round 6 as final before the deadline with `makefun final
+   news-image-20261125 01a215f0-fa23-73ea-a70a-7e6cc7e01998`
+   (no quota cost). Transcripts-v6 and commit 66082762 are the
+   insurance; do not overwrite or delete them. Round 5 (commit
+   7668924b + transcripts-v5) remains a second fallback.
+6. Quota: 8 entries used (5 on 25 Nov, 3 on 26 Nov), 7 left today
+   (26 Nov), 12 total left. Deadline Fri 27 Nov 08:00 Beijing.
    Final result due 11 Dec 2026.
 
 ## Honest caveats
@@ -283,8 +365,8 @@
   ranking is due 11 Dec 2026. A better-looking page does not
   guarantee a better pairwise rate — the comparison in step 5 is
   the only evidence that counts.
-- Competition is very strong: 12,671 ranked entries, leaders at
-  ~98.5% win rate. Round 7 needs a large jump from 0.978389 to
+- Competition is very strong: ~13,400 ranked entries, leaders at
+  ~99% win rate. Round 9 needs a large jump from 0.978389 to
   reach the top 50.
 - The scoring environment's fonts may differ slightly from this
   workspace; the program falls back to Pillow's default font, so
