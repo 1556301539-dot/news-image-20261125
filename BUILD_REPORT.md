@@ -5,11 +5,64 @@
 - Prize: $100 USDC, 50 winners (1st $20, 2nd $12, 3rd $6, 4–10th $2 each,
   11–50th $1.20 each). Deadline: Fri 27 Nov 2026, 8:00 AM Beijing.
 - Built: 26 Nov 2026, in `~/workspace/make-fun/news-image/`
-- **Status: round-7 redesign built and tested locally. Not yet pushed
+- **Status: round-8 redesign built and tested locally. Not yet pushed
   or submitted — entry.png still needs a browser upload (binary),
   then transcripts + kit submission. Round 6 ("Luminous Locus",
   commit 66082762) scored dev 0.978389, rank 2154 of 12,671 — the
-  insurance if round 7 scores worse.**
+  insurance if round 8 scores worse. Round 7 ("Hopeful Vector",
+  commit 4f2e20ab) scored dev 0.972121 and was restored away from;
+  round 6 is the current final entry.**
+
+## Round 8 — "breadth plus pictures" (26 Nov 2026, this round)
+
+- **Why:** round 6 (29 stories, dev 0.978389) beat round 7 (13
+  stories, dev 0.972121). Cutting stories was the wrong direction —
+  the judge's second criterion (selection and breadth) weighs
+  heavily — but round 7's storytelling pictures (real flames, smoke)
+  were right. Round 8 keeps round 6's breadth and adds round 7's
+  pictures, and adds what the top of the board has: a UTC timeline.
+- **What changed:** 39 stories in total (1 lead + 8 scenes + 30
+  briefs), 9 regions, 15 fields. Nine drawn scenes, each telling one
+  story on its own: Hormuz hero, Kospi chart with a plunging line
+  and a big red -6.2%, Cairo tanker fire, Shenzhou-24 launch,
+  Brooklyn courthouse with a red GUILTY stamp, a container port
+  carrying the tariff rates (35% / 25% / 20% / 15%), an Ituri clinic
+  with a red cross and an ambulance, a Cartagena supermarket with
+  an ÉXITO sign and police lights, a Gaza skyline under smoke.
+  A UTC timeline runs the day in order from 00:18 (Shenzhou
+  liftoff) through the Kospi close, the tariff proposal, the Cairo
+  fire, the Cartagena rescue and the Gaza strikes — only the two
+  UTC times are clock times; the rest are placed by where they fell
+  in the day and labelled by place, never by an invented time.
+  Six numbers define the day (25 tankers, -6.2% Kospi, 31 Cairo
+  dead, 35% top tariff, 10/12 Huawei, 5,775 Ebola dead).
+- **New facts, all verified online and dated 25 Nov 2026** (see the
+  round-8 section of SOURCES.md): Kospi -6.2% (WSJ, Al Jazeera,
+  Yonhap), Cairo tanker fire (AP, CNN), US tariffs on 14 economies
+  (Reuters, USTR, Straits Times, Al Jazeera — Vietnam 35% is the
+  highest proposed rate, China 20% sits on top of existing ~25%),
+  Embraer 10% duty, US citizens told to leave Iran, Houthis claim
+  a Ras Tanura refinery attack, Cartagena hostages freed, Nigeria
+  $227m meth seizure, Netanyahu case, Macy's parade postponed,
+  birthright order blocked, famine monitor halting, Chile teachers,
+  Athens march, Pakistan collapse, Haftar in Ankara, Beaver
+  Supermoon, Brent below $90, Ukraine drone strikes on Russian
+  refineries, death penalty sought for Yoon. Checked and REJECTED:
+  Jesse Jackson died 17 Feb 2026, Prince Andrew arrested 19 Feb
+  2026, "El Mencho" killed 22 Feb 2026, Yoon's life sentence was
+  19 Feb 2026 — none of these is 25 Nov news.
+- **Design:** the same original "Broadsheet Dusk" language as round
+  6 (warm paper, ink, signal red, dusk navy) — not copied from any
+  top entry. Scenes are painted at a 309×135 design size and scaled
+  down uniformly to 229×100, so every painter's proportions stay
+  true. The date stays the biggest thing on the page.
+- **Verification:** `render.py` run twice → identical SHA-256
+  `b92ad3cc909a5670ddddfa9405d0e40904d96c166d08fe5b7d3945ad60b1aa47`;
+  239,483 bytes (limit 1 MiB); 1024×1024; no layout warnings; viewed
+  at full size and at 300 px — the date, lead headline, six numbers
+  and the eight-scene grid all read at 300 px. One defect found and
+  fixed in review: the timeline's node labels overlapped its title;
+  the labels now sit below the line, stacked clock/place above event.
 
 ## Why round 6 exists
 

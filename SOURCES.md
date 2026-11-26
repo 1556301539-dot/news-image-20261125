@@ -65,3 +65,62 @@ headlines below are paraphrases of the cited reporting.
 - Pope Leo XIV applies for a US midterm mail ballot; Lego picks
   Portugal for its eighth factory — Manila Times / Munich Eye,
   25 Nov 2026. https://themunicheye.com/News-articles/page/3/
+
+## Round 8 — new items verified 26 Nov 2026 (all dated 25 Nov 2026)
+
+Every item below was checked online before use; none is taken from
+the stale Access24 list (which wrongly dates Feb 2026 events to
+25 Nov). Rejected after checking: Jesse Jackson died 17 Feb 2026;
+Prince Andrew arrested 19 Feb 2026; "El Mencho" killed 22 Feb 2026;
+Yoon's life sentence was 19 Feb 2026.
+
+- Kospi falls 6.2% in an Asian chip rout; Samsung -9.9%, SK Hynix
+  -11%, Nikkei -2.8%, Taiex -4.8%, Hang Seng -1.1% — WSJ, Al Jazeera,
+  Yonhap, 25 Nov 2026. Kospi closed at 4,697.51, a 10-month low;
+  the US chip index fell 7.9% the day before.
+- Fuel tanker crash on Cairo's Ring Road (Al-Warraq, Giza) kills at
+  least 31, injures 21, destroys 27 vehicles — AP, CNN, 25 Nov 2026.
+  A tanker truck, not a ship.
+- USTR proposes Section 301 tariffs on 14 economies: Vietnam up to
+  35%, India up to 25%, China up to 20% (on top of ~25% first-term
+  tariffs), EU / Japan / Korea / Taiwan / Switzerland 15%,
+  Bangladesh / Cambodia / Indonesia / Malaysia / Thailand up to 18%,
+  Singapore up to 20%; Mexico and Norway spared; nothing takes
+  effect before hearings on 25 Jan 2027 — Reuters, USTR, Straits
+  Times, Al Jazeera, 25 Nov 2026.
+- US proposes a 10% duty on finished Embraer aircraft — Al Jazeera,
+  LA Post, 25 Nov 2026.
+- US tells citizens to leave Iran, warns hostilities could escalate
+  fast — Euronews, 25 Nov 2026.
+- Houthis claim an attack on Saudi Arabia's largest refinery,
+  Ras Tanura — LA Post, 25 Nov 2026. Phrased as a claim.
+- Colombia hostage siege ends in Cartagena; all hostages rescued,
+  one captor killed, four detained — Euronews, Daily Spark,
+  25 Nov 2026.
+- Nigeria seizes $227m of meth, arrests five Mexicans — LA Post,
+  25 Nov 2026.
+- Israeli judges recommend dropping one Netanyahu bribery case —
+  LA Post, 25 Nov 2026.
+- Macy's Thanksgiving Day Parade postponed over weather, first time
+  in 100 years — LA Post, 25 Nov 2026.
+- Trump's birthright citizenship order blocked by a second judge —
+  LA Post, 25 Nov 2026.
+- US famine monitor to halt reporting as a funding shortfall hits
+  staff — LA Post, 25 Nov 2026.
+- Chile teachers strike and clash with police over education cuts —
+  Euronews, 25 Nov 2026.
+- 14,000 march in Athens against rising living costs — Euronews,
+  25 Nov 2026.
+- Pakistan building collapse kills 16, rescuers search for
+  survivors — Euronews, Access24, 25 Nov 2026.
+- Haftar visits Ankara as Erdogan prepares his first Libya trip in
+  15 years — Euronews, 25 Nov 2026.
+- Beaver Supermoon lights up skies around the world — Euronews,
+  25 Nov 2026.
+- Brent crude below $90, down 20% in November — Oil Price,
+  25 Nov 2026.
+- Ukraine drones hit Russian refineries — Euronews, intelcast,
+  25 Nov 2026.
+- Prosecutors seek the death penalty for ex-president Yoon —
+  Hankook Ilbo (via Threads summary) and today.refreshing.cc,
+  25 Nov 2026.
